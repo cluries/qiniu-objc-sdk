@@ -277,7 +277,7 @@ QNStats *defaultStatsManager = nil;
 
 - (void) getOutIp {
     
-    [_httpManager GET:[_statsHost stringByAppendingString:@"/v1/ip"] parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [_httpManager GET:[_statsHost stringByAppendingString:@"/v1/ip"] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *rst = (NSDictionary *)responseObject;
         _sip = [rst valueForKey:@"ip"];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
